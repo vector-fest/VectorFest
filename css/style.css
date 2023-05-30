@@ -1,0 +1,608 @@
+@import "global.css";
+@import "variables.css";
+
+/*Nav*/
+
+#cabecera {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    box-shadow: 0 2px 4px var(--color-shadow-dark-blue);
+    z-index: 2;
+}
+
+#cabecera .fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color-red);
+    background: linear-gradient(90deg, rgba(242, 48, 65, 1) 55%, rgba(255, 255, 255, 0.23030462184873945) 89%);
+    opacity: 0.6;
+    z-index: 1;
+    transition: background 500ms ease-in-out, opacity 500ms ease-in-out;
+    will-change: background, opacity;
+}
+
+#cabecera .fondo.scrolled {
+    background: var(--color-red);
+    opacity: 0.95;
+}
+
+#cabecera nav {
+    padding: 0 10px;
+    position: absolute;
+    display: grid;
+    width: calc(100vw - 20px);
+    height: 100%;
+    z-index: 2;
+}
+
+#cabecera .mobile-menu {
+    display: none;
+}
+
+#cabecera nav ul {
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: 1fr;
+}
+
+#cabecera nav ul li {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    z-index: 2;
+}
+
+#cabecera nav .menu-opciones .fondo {
+    display: none;
+    z-index: 1;
+}
+
+#cabecera nav ul li .btn-nav {
+    padding: 2px 17px;
+    display: block;
+    color: var(--color-white-tr);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 300ms ease-in-out, color 300ms ease-in-out;
+    will-change: color, background;
+}
+
+#cabecera nav ul li .btn-nav:hover {
+    color: var(--color-black);
+    background: var(--color-white);
+}
+
+.sect {
+    width: 100vw;
+}
+
+/* Hero */
+
+#hero {
+    height: auto;
+    background: var(--color-dark-blue);
+}
+
+#hero img {
+    width: 100%;
+}
+
+/* Acerca */
+#acerca {
+    margin-top: 50px;
+    display: grid;
+    height: auto;
+    grid-template-columns: 4fr 5fr;
+    background: var(--color-dark-blue);
+}
+
+#acerca.dos {
+    grid-template-columns: 1fr;
+    margin-bottom: 50px;
+}
+
+#acerca.dos .info{
+    background-image: url('../assets/Imagenes/fondos/fondo-galeria.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#acerca.dos .info .container-info{
+    padding: 50px;
+    width: 100%;
+}
+
+#acerca.dos .info .container-info ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#acerca.dos .info .container-info ul li {
+    text-align: justify;
+}
+
+#acerca img {
+    width: 100%;
+}
+
+#acerca .info {
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-size: contain;
+    background-image: url("../assets/Imagenes/fondos/acerca2.jpg");
+}
+
+.info .container-info * {
+    color: var(--color-white);
+}
+
+.info .container-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 75%;
+}
+
+.info .container-info h3 {
+    font-size: var(--font-size-md);
+}
+
+#acerca .info .container-info a {
+    width: max-content;
+    height: min-content;
+    padding: 10px 30px;
+    border-radius: 24px;
+    font-size: var(--font-size-sm);
+    font-weight: 200;
+    text-decoration: none;
+    border: none;
+    border: 1px solid var(--color-white);
+    background: transparent;
+    align-self: flex-end;
+}
+
+#acerca .info .container-info p {
+    font-size: var(--font-size-sm);
+    text-align: justify;
+}
+
+/* Calendario */
+#calendario {
+    margin: 50px;
+    width: calc(100vw - 100px);
+    display: grid;
+    grid-template-columns: 50fr 29fr 11fr;
+    grid-template-rows: 1fr;
+    display: block;
+    height: min-content;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+#calendario img {
+    width: 100%;
+}
+
+#calendario .grilla-fechas {
+    padding: 60px 0;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 3fr 3fr 4fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+        "uno uno cuatro"
+        "dos dos cuatro"
+        "tres tres cinco";
+}
+
+#calendario .grilla-fechas .fecha.uno {
+    grid-area: uno;
+    border: 1px solid var(--color-yellow);
+}
+
+#calendario .grilla-fechas .fecha.dos {
+    grid-area: dos;
+    border: 1px solid var(--color-yellow);
+    background: var(--color-yellow);
+}
+
+#calendario .grilla-fechas .fecha.tres {
+    grid-area: tres;
+    border: 1px solid var(--color-red);
+    background: var(--color-red);
+}
+
+#calendario .grilla-fechas .fecha.cuatro {
+    grid-area: cuatro;
+    background: var(--color-light-blue);
+}
+
+#calendario .grilla-fechas .fecha.cinco {
+    grid-area: cinco;
+    border: 1px solid var(--color-yellow);
+}
+
+/* Galerias */
+#galeria-1,
+#galeria-2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#galeria-1 .fondo,
+#galeria-2 .fondo {
+    background-image: url("../assets/Imagenes/fondos/fondo-galeria.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.accordian {
+    min-width: 350px;
+    width: 90vw;
+    height: 320px;
+    overflow: hidden;
+
+    margin: 50px auto;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+
+.accordian ul {
+    width: 2400px;
+    height: 100%;
+}
+
+.accordian li {
+    position: relative;
+    display: block;
+    width: calc(90vw / 6);
+    height: 100%;
+    float: left;
+
+    border-left: 1px solid #888;
+
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+
+    /*Transitions to give animation effect*/
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    /*If you hover on the images now you should be able to 
+	see the basic accordian*/
+}
+
+#galeria-1 .accordian li {
+    width: calc((90vw - 320px) / 5);
+}
+
+#galeria-1 .accordian li:first-child {
+    width: 320px;
+}
+
+#galeria-1 .accordian ul:hover li,
+#galeria-2 .accordian ul:hover li {
+    width: calc((90vw - 320px) / 5);
+}
+
+#galeria-1 .accordian ul li:hover,
+#galeria-2 .accordian ul li:hover {
+    width: 320px;
+}
+
+.accordian li div {
+    height: 100%;
+}
+
+.accordian li div img {
+    display: block;
+    height: 100%;
+}
+
+/* Video */
+#video {
+    margin: 50px;
+    width: calc(100vw - 100px);
+    position: relative;
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+#video video {
+    position: relative;
+    width: 60vw;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px var(--color-black-tr);
+    background: var(--color-black);
+}
+
+#video .fondo {
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/Imagenes/fondos/video.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Organizadores */
+#organizadores {
+    margin: 50px;
+    width: calc(100vw - 100px);
+    padding: 50px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-image: url('../assets/Imagenes/fondos/fondo-organizadores-targetas-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 24px;
+}
+
+#organizadores .info {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#organizadores .info .container-info p {
+    text-align: justify;
+    font-size: var(--font-size-sm);
+}
+
+/*Cards organizadores*/
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 1px rgba(114, 16, 16, 0.486) solid;
+    background: var(--color-white);
+    margin: 10px;
+    transition: 0.6s;
+}
+
+.cards:hover {
+    transition: 0.6s;
+    box-shadow: 5px 5px 20px rgb(47, 63, 82);
+}
+
+.cards img {
+    transition: 0.2s;
+    width: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.cards:hover img {
+    transition: 0.2s;
+    outline: 4px solid rgb(206, 147, 147);
+}
+
+.cards p {
+    color: rgb(150, 13, 13);
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media a i {
+    color: rgb(51, 2, 2);
+    font-size: large;
+    transition: 0.5s;
+    padding: 10px 0;
+}
+
+.social-media a i:hover {
+    transition: 0.5s;
+    transform: scale(2);
+}
+
+.social-media {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Footer */
+#redes-sociales {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: center;
+    justify-items: center;
+    background: var(--color-shadow-dark-blue);
+    box-shadow: 0 -2px 2px var(--color-black-tr);
+}
+
+#redes-sociales h3 {
+    margin: 20px 0;
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+}
+
+#redes-sociales ul {
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+#redes-sociales ul a img {
+    border-radius: 50%;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+    will-change: transform, box-shadow;
+}
+
+#redes-sociales ul a:hover img {
+    transform: scale(1.2);
+    box-shadow: 4px 4px 6px var(--color-black-tr);
+}
+
+/*Resposive*/
+
+@media (max-width: 450px) {
+    .accordian {
+        height: 240px;
+    }
+
+    /*Reduce with of un-hovered elements*/
+    .accordian ul:hover li {
+        width: calc((90vw - 240px) / 5);
+    }
+
+    /*Lets apply hover effects now*/
+    /*The LI hover style should override the UL hover style*/
+    .accordian ul li:hover {
+        width: 240px;
+    }
+}
+
+@media (max-width: 680px) {
+    #video video {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 850px) {
+    #cabecera .fondo {
+        z-index: 1;
+    }
+
+    #cabecera nav {
+        z-index: 2;
+    }
+
+    #cabecera nav .menu-opciones {
+        transform: translateY(calc((100% + 70px) * -1));
+        position: relative;
+        padding: 10px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fit, 1fr);
+        border-radius: 0 0 12px 12px;
+        transition: transform 500ms ease-in;
+        will-change: transform;
+    }
+
+    #cabecera nav .menu-opciones .fondo {
+        display: block;
+        border-radius: 0 0 12px 12px;
+        z-index: 1;
+    }
+
+    #cabecera nav .menu-opciones .fondo.scrolled {
+        background: var(--color-red);
+        opacity: 0.95;
+    }
+
+    #cabecera nav .menu-opciones.isView {
+        transform: translateY(0);
+    }
+
+    #cabecera nav .menu-opciones li {
+        z-index: 2;
+    }
+
+    #cabecera nav .menu-opciones li a {
+        width: 100%;
+        text-align: center;
+    }
+
+    #cabecera nav .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 3;
+        color: var(--color-white);
+    }
+
+    #cabecera nav .mobile-menu .btn-menu {
+        padding: 5px;
+        background: none;
+        border: none;
+        transition: transform 200ms ease-in-out;
+        will-change: transform;
+    }
+
+    #cabecera nav .mobile-menu .btn-menu:hover {
+        transform: scale(1.2);
+    }
+
+    #cabecera nav .mobile-menu .btn-menu img {
+        width: 60%;
+    }
+}
+
+@media (max-width: 890px) {
+    #acerca {
+        grid-template-columns: 1fr;
+    }
+
+    #acerca img {
+        display: none;
+    }
+
+    #acerca .info {
+        align-items: center;
+        background-size: cover;
+        background-image: url("../assets/Imagenes/fondos/fondo-galeria.jpg");
+    }
+}
+
+@media (max-width: 1200px) {
+    #organizadores {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    #organizadores .info .container-info h3 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 1140px) {
+    #organizadores .info .container-info h3 {
+        font-size: var(--font-size-md-lg);
+    }
+}
