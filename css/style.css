@@ -479,27 +479,36 @@
 }
 
 /*Resposive*/
-
-@media (max-width: 450px) {
-    .accordian {
-        height: 240px;
+@media (max-width: 1200px) {
+    #organizadores {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
     }
 
-    /*Reduce with of un-hovered elements*/
-    .accordian ul:hover li {
-        width: calc((90vw - 240px) / 5);
-    }
-
-    /*Lets apply hover effects now*/
-    /*The LI hover style should override the UL hover style*/
-    .accordian ul li:hover {
-        width: 240px;
+    #organizadores .info .container-info h3 {
+        text-align: center;
     }
 }
 
-@media (max-width: 680px) {
-    #video video {
-        width: 60vw;
+@media (max-width: 1140px) {
+    #organizadores .info .container-info h3 {
+        font-size: var(--font-size-md-lg);
+    }
+}
+
+@media (max-width: 890px) {
+    #acerca {
+        grid-template-columns: 1fr;
+    }
+
+    #acerca img {
+        display: none;
+    }
+
+    #acerca .info {
+        align-items: center;
+        background-size: cover;
+        background-image: url("../assets/Imagenes/fondos/fondo-galeria.jpg");
     }
 }
 
@@ -574,35 +583,55 @@
     }
 }
 
-@media (max-width: 890px) {
-    #acerca {
-        grid-template-columns: 1fr;
+@media (max-width: 680px) {
+    #video video {
+        width: 60vw;
     }
 
-    #acerca img {
-        display: none;
-    }
-
-    #acerca .info {
-        align-items: center;
-        background-size: cover;
-        background-image: url("../assets/Imagenes/fondos/fondo-galeria.jpg");
-    }
-}
-
-@media (max-width: 1200px) {
     #organizadores {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
+        margin: 50px 0;
+        width: 100vw;
+    }
+
+    #organizadores .info {
+        margin: 50px 0 0;
+        padding: 0;
     }
 
     #organizadores .info .container-info h3 {
-        text-align: center;
+        font-size: var(--font-size-md) !important;
     }
 }
 
-@media (max-width: 1140px) {
-    #organizadores .info .container-info h3 {
-        font-size: var(--font-size-md-lg);
+@media (max-width: 450px) {
+    .accordian {
+        height: 240px;
+    }
+
+    /*Reduce with of un-hovered elements*/
+    .accordian ul:hover li {
+        width: calc((90vw - 240px) / 5) !important;
+    }
+
+    /*Lets apply hover effects now*/
+    /*The LI hover style should override the UL hover style*/
+    .accordian ul li:hover {
+        width: 240px !important;
+    }
+
+    #galeria-1 .accordian li {
+        width: calc((90vw - 240px) / 5);
+    }
+    
+    #galeria-1 .accordian li:first-child {
+        width: 240px;
     }
 }
+
+@media (max-width: 385px) {
+    #organizadores .info .container-info h3 {
+        font-size: var(--font-size-sm-lg) !important;
+    }
+}
+
+
